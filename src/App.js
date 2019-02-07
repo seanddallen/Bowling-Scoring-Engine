@@ -43,11 +43,14 @@ class App extends Component {
   }
 
   handleScore = () => {
-
+    const {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, frame11, frame12 } = this.state
+    this.setState({
+      score: Number(frame1) + Number(frame2) + Number(frame3) + Number(frame4) + Number(frame5) + Number(frame6) + Number(frame7) + Number(frame8) + Number(frame9) + Number(frame10) + Number(frame11) + Number(frame12)
+    })
+    setTimeout(() => console.log(this.state.score), 500);
   }
   
   render() {
-    console.log(this.state.frame12)
     return (
       <div className="App">
         <h2 id="title">Bowling Scoring App</h2>
