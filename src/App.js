@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Frame} from './Frame'
 
 class App extends Component {
   
@@ -102,10 +101,10 @@ class App extends Component {
       this.setState({frame10: 10 + (frame11 === 'strike' ? 10 : Number(frame11)) + (frame12 === 'strike' ? 10 : Number(frame12))})
     } 
     if(frame11 === 'strike'){
-      this.setState({frame11: 0})
+      this.setState({frame11: '0'})
     } 
     if(frame12 === 'strike'){
-      this.setState({frame12: 0})
+      this.setState({frame12: '0'})
     } 
 
     this.setState({
@@ -178,18 +177,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-{/* <Frame id="1" frame={this.state.frame}>1</Frame>
-<Frame id="2" frame={this.state.frame}>2</Frame>
-<Frame id="3" frame={this.state.frame}>3</Frame>
-<Frame id="4" frame={this.state.frame}>4</Frame>
-<Frame id="5" frame={this.state.frame}>5</Frame>
-<Frame id="6" frame={this.state.frame}>6</Frame>
-<Frame id="7" frame={this.state.frame}>7</Frame>
-<Frame id="8" frame={this.state.frame}>8</Frame>
-<Frame id="9" frame={this.state.frame}>9</Frame>
-<Frame id="10" frame={this.state.frame}>10</Frame>
-<Frame id="11" frame={this.state.frame}>11</Frame>
-<Frame id="12"frame={this.state.frame}>12</Frame> */}
