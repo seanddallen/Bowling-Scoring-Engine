@@ -38,16 +38,28 @@ class App extends Component {
     })
   }
 
-  HandleInput = () => {
-
-  }
-
   handleScore = () => {
-    const {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, frame11, frame12 } = this.state
+    const {score, frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, frame11, frame12 } = this.state
+
+    if(frame1 === 'spare'){
+      setTimeout(() => console.log(frame2), 500);      
+      this.setState({frame1: frame2 === 'spare' ? 10 + 10 : 10 + Number(frame2)})
+    }
+    if(frame1 === 'strike'){
+      this.setState({frame1: 10 + Number(frame2) + Number(frame3)})
+    }
+    if(frame2 === 'spare'){
+      setTimeout(() => console.log(frame3), 500);      
+      this.setState({frame2: 10 + Number(frame3)})
+    }
+    if(frame2 === 'strike'){
+      this.setState({frame2: 10 + Number(frame3) + Number(frame4)})
+    }
+
     this.setState({
       score: Number(frame1) + Number(frame2) + Number(frame3) + Number(frame4) + Number(frame5) + Number(frame6) + Number(frame7) + Number(frame8) + Number(frame9) + Number(frame10) + Number(frame11) + Number(frame12)
     })
-    setTimeout(() => console.log(this.state.score), 500);
+    setTimeout(() => console.log(score), 500);
   }
   
   render() {
