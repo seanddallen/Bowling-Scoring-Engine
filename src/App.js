@@ -4,119 +4,123 @@ import './App.css';
 class App extends Component {
   
   state = {
-    score: 0,
-    frame1: '0',
-    frame2: '0',
-    frame3: '0',
-    frame4: '0',
-    frame5: '0',
-    frame6: '0',
-    frame7: '0',
-    frame8: '0',
-    frame9: '0',
-    frame10: '0',
-    frame11: '0',
-    frame12: '0'
+    frame1: '',
+    frame2: '',
+    frame3: '',
+    frame4: '',
+    frame5: '',
+    frame6: '',
+    frame7: '',
+    frame8: '',
+    frame9: '',
+    frame10: '',
+    bonus1: '',
+    bonus2: ''
+  }
+
+  calculateScore = () => {
+
   }
 
   handleStart = () => {
     this.setState({
-      score: 0,
-      frame1: '0',
-      frame2: '0',
-      frame3: '0',
-      frame4: '0',
-      frame5: '0',
-      frame6: '0',
-      frame7: '0',
-      frame8: '0',
-      frame9: '0',
-      frame10: '0',
-      frame11: '0',
-      frame12: '0'
+      frame1: '',
+      frame2: '',
+      frame3: '',
+      frame4: '',
+      frame5: '',
+      frame6: '',
+      frame7: '',
+      frame8: '',
+      frame9: '',
+      frame10: '',
+      bonus1: '',
+      bonus2: ''
     })
   }
 
   handleScore = () => {
-    const {score, frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, frame11, frame12 } = this.state
-
-    if(frame1 === 'spare'){
-      this.setState({frame1: frame2 === 'spare' || frame2 === 'strike' ? 10 + 10 : 10 + Number(frame2)})
-    }
-    if(frame1 === 'strike'){
-      this.setState({frame1: 10 + (frame2 === 'spare' || frame2 === 'strike' ? 10 : Number(frame2)) + (frame3 === 'spare' || frame3 === 'strike' ? 10 : Number(frame3))})
-    }
-    if(frame2 === 'spare'){
-      this.setState({frame2: frame3 === 'spare' || frame3 === 'strike' ? 10 + 10 : 10 + Number(frame3)})
-    }
-    if(frame2 === 'strike'){
-      this.setState({frame2: 10 + (frame3 === 'spare' || frame3 === 'strike' ? 10 : Number(frame3)) + (frame4 === 'spare' || frame4 === 'strike' ? 10 : Number(frame4))})
-    }
-    if(frame3 === 'spare'){
-      this.setState({frame3: frame4 === 'spare' || frame4 === 'strike' ? 10 + 10 : 10 + Number(frame4)})
-    }
-    if(frame3 === 'strike'){
-      this.setState({frame3: 10 + (frame4 === 'spare' || frame4 === 'strike' ? 10 : Number(frame4)) + (frame5 === 'spare' || frame5 === 'strike' ? 10 : Number(frame5))})
-    }  
-    if(frame4 === 'spare'){
-      this.setState({frame4: frame5 === 'spare' || frame5 === 'strike' ? 10 + 10 : 10 + Number(frame5)})
-    }
-    if(frame4 === 'strike'){
-      this.setState({frame4: 10 + (frame5 === 'spare' || frame5 === 'strike' ? 10 : Number(frame5)) + (frame6 === 'spare' || frame6 === 'strike' ? 10 : Number(frame6))})
-    }  
-    if(frame5 === 'spare'){
-      this.setState({frame5: frame6 === 'spare' || frame6 === 'strike' ? 10 + 10 : 10 + Number(frame6)})
-    }
-    if(frame5 === 'strike'){
-      this.setState({frame5: 10 + (frame6 === 'spare' || frame6 === 'strike' ? 10 : Number(frame6)) + (frame7 === 'spare' || frame7 === 'strike' ? 10 : Number(frame7))})
-    }  
-    if(frame6 === 'spare'){
-      this.setState({frame6: frame7 === 'spare' || frame7 === 'strike' ? 10 + 10 : 10 + Number(frame7)})
-    }
-    if(frame6 === 'strike'){
-      this.setState({frame6: 10 + (frame7 === 'spare' || frame7 === 'strike' ? 10 : Number(frame7)) + (frame8 === 'spare' || frame8 === 'strike' ? 10 : Number(frame8))})
-    }  
-    if(frame7 === 'spare'){
-      this.setState({frame7: frame8 === 'spare' || frame8 === 'strike' ? 10 + 10 : 10 + Number(frame8)})
-    }
-    if(frame7 === 'strike'){
-      this.setState({frame7: 10 + (frame8 === 'spare' || frame8 === 'strike' ? 10 : Number(frame8)) + (frame9 === 'spare' || frame9 === 'strike' ? 10 : Number(frame9))})
-    }  
-    if(frame8 === 'spare'){
-      this.setState({frame8: frame9 === 'spare' || frame9 === 'strike' ? 10 + 10 : 10 + Number(frame9)})
-    }
-    if(frame8 === 'strike'){
-      this.setState({frame8: 10 + (frame9 === 'spare' || frame9 === 'strike' ? 10 : Number(frame9)) + (frame10 === 'spare' || frame10 === 'strike' ? 10 : Number(frame10))})
-    }  
-    if(frame9 === 'spare'){
-      this.setState({frame9: frame10 === 'spare' || frame10 === 'strike' ? 10 + 10 : 10 + Number(frame10)})
-    }
-    if(frame9 === 'strike'){
-      this.setState({frame9: 10 + (frame10 === 'spare' || frame10 === 'strike' ? 10 : Number(frame10)) + (frame11 === 'strike' ? 10 : Number(frame11))})
-    } 
-    if(frame10 === 'spare'){
-      this.setState({frame10: frame11 === 'strike' ? 10 + 10 : 10 + Number(frame11)})
-    }
-    if(frame10 === 'strike'){
-      this.setState({frame10: 10 + (frame11 === 'strike' ? 10 : Number(frame11)) + (frame12 === 'strike' ? 10 : Number(frame12))})
-    } 
-    if(frame11 === 'strike'){
-      this.setState({frame11: '0'})
-    } 
-    if(frame12 === 'strike'){
-      this.setState({frame12: '0'})
-    } 
-
-    this.setState({
-      score: Number(frame1) + Number(frame2) + Number(frame3) + Number(frame4) + Number(frame5) + Number(frame6) + Number(frame7) + Number(frame8) + Number(frame9) + Number(frame10)
+    this.setState(prevState => {
+      let {frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonus1, bonus2 } = prevState
+      if(frame1 === 'spare'){
+        frame1 = frame2 === 'spare' || frame2 === 'strike' ? 10 + 10 : 10 + Number(frame2)
+      }
+      if(frame1 === 'strike'){
+        frame1 = 10 + (frame2 === 'spare' || frame2 === 'strike' ? 10 : Number(frame2)) + (frame3 === 'spare' || frame3 === 'strike' ? 10 : Number(frame3))
+      }
+      if(frame2 === 'spare'){
+        frame2 = frame3 === 'spare' || frame3 === 'strike' ? 10 + 10 : 10 + Number(frame3)
+      }
+      if(frame2 === 'strike'){
+        frame2 = 10 + (frame3 === 'spare' || frame3 === 'strike' ? 10 : Number(frame3)) + (frame4 === 'spare' || frame4 === 'strike' ? 10 : Number(frame4))
+      }
+      if(frame3 === 'spare'){
+        frame3 = frame4 === 'spare' || frame4 === 'strike' ? 10 + 10 : 10 + Number(frame4)
+      }
+      if(frame3 === 'strike'){
+        frame3 = 10 + (frame4 === 'spare' || frame4 === 'strike' ? 10 : Number(frame4)) + (frame5 === 'spare' || frame5 === 'strike' ? 10 : Number(frame5))
+      }  
+      if(frame4 === 'spare'){
+        frame4 = frame5 === 'spare' || frame5 === 'strike' ? 10 + 10 : 10 + Number(frame5)
+      }
+      if(frame4 === 'strike'){
+        frame4 = 10 + (frame5 === 'spare' || frame5 === 'strike' ? 10 : Number(frame5)) + (frame6 === 'spare' || frame6 === 'strike' ? 10 : Number(frame6))
+      }  
+      if(frame5 === 'spare'){
+        frame5 = frame6 === 'spare' || frame6 === 'strike' ? 10 + 10 : 10 + Number(frame6)
+      }
+      if(frame5 === 'strike'){
+        frame5 = 10 + (frame6 === 'spare' || frame6 === 'strike' ? 10 : Number(frame6)) + (frame7 === 'spare' || frame7 === 'strike' ? 10 : Number(frame7))
+      }  
+      if(frame6 === 'spare'){
+        frame6 = frame7 === 'spare' || frame7 === 'strike' ? 10 + 10 : 10 + Number(frame7)
+      }
+      if(frame6 === 'strike'){
+        frame6 = 10 + (frame7 === 'spare' || frame7 === 'strike' ? 10 : Number(frame7)) + (frame8 === 'spare' || frame8 === 'strike' ? 10 : Number(frame8))
+      }  
+      if(frame7 === 'spare'){
+        frame7 = frame8 === 'spare' || frame8 === 'strike' ? 10 + 10 : 10 + Number(frame8)
+      }
+      if(frame7 === 'strike'){
+        frame7 = 10 + (frame8 === 'spare' || frame8 === 'strike' ? 10 : Number(frame8)) + (frame9 === 'spare' || frame9 === 'strike' ? 10 : Number(frame9))
+      }  
+      if(frame8 === 'spare'){
+        frame8 = frame9 === 'spare' || frame9 === 'strike' ? 10 + 10 : 10 + Number(frame9)
+      }
+      if(frame8 === 'strike'){
+        frame8 = 10 + (frame9 === 'spare' || frame9 === 'strike' ? 10 : Number(frame9)) + (frame10 === 'spare' || frame10 === 'strike' ? 10 : Number(frame10))
+      }  
+      if(frame9 === 'spare'){
+        frame9 = frame10 === 'spare' || frame10 === 'strike' ? 10 + 10 : 10 + Number(frame10)
+      }
+      if(frame9 === 'strike'){
+        frame9 = 10 + (frame10 === 'spare' || frame10 === 'strike' ? 10 : Number(frame10)) + (bonus1 === 'strike' ? 10 : Number(bonus1))
+      } 
+      if(frame10 === 'spare'){
+        frame10 = bonus1 === 'strike' ? 10 + 10 : 10 + Number(bonus1)
+      }
+      if(frame10 === 'strike'){
+        frame10 = 10 + (bonus1 === 'strike' ? 10 : Number(bonus1)) + (bonus2 === 'strike' ? 10 : Number(bonus2))
+      } 
+      if(bonus1.length > 0){
+        bonus1 = ''
+      } 
+      if(bonus2.length > 0){
+        bonus2 = ''
+      }
+      return {
+        frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10,
+      }
     })
-    setTimeout(() => alert(`Score: ${score}`), 1000);
   }
   
   render() {
+    let {score, frame1, frame2, frame3, frame4, frame5, frame6, frame7, frame8, frame9, frame10, bonus1, bonus2 } = this.state
+    let totalScore = Number(frame1) + Number(frame2) + Number(frame3) + Number(frame4) + Number(frame5) + Number(frame6) + Number(frame7) + Number(frame8) + Number(frame9) + Number(frame10)
     return (
       <div className="App">
         <h2 id="title">Bowling Scoring App</h2>
+        <h6>Insert "0-9", "spare", or "strike"</h6>
         <div className="row">
           <button id="start" onClick={this.handleStart}>Start Game</button>
         </div>
@@ -161,15 +165,16 @@ class App extends Component {
           <input id="input10" type="text" value={this.state.frame10} onChange={(e) => this.setState({frame10: e.target.value})}></input>
         </div>
         <div className="row">
-          <label>Frame 11</label>
-          <input id="input11" type="text" value={this.state.frame11} onChange={(e) => this.setState({frame11: e.target.value})}></input>
+          <label>Bonus 1</label>
+          <input id="bonus1" type="text" value={this.state.bonus1} onChange={(e) => this.setState({bonus1: e.target.value})}></input>
         </div>
         <div className="row">
-          <label>Frame 12</label>
-          <input id="input12" type="text" value={this.state.frame12} onChange={(e) => this.setState({frame12: e.target.value})}></input>
+          <label>Bonus 2</label>
+          <input id="bonus2" type="text" value={this.state.bonus2} onChange={(e) => this.setState({bonus2: e.target.value})}></input>
         </div>
         <div className="row">
           <button id="score" onClick={this.handleScore}>Score Game</button>
+          {!isNaN(totalScore) && totalScore}
         </div>
       </div>
     );
